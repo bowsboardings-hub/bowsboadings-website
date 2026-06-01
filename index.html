@@ -16,8 +16,9 @@
       --plum:        #664b57;
       --plum-mid:    #7d5c6a;
       --plum-dark:   #3d2030;
-      --plum-light:  #F3E8EA;
-      --plum-border: #E8D5DA;
+      --plum-light:  #F7EAEA;
+      --plum-border: #EDD6D6;
+      --brand-pink:  #D2A5A6;
       --white:       #FFFFFF;
       --border:      #EDE0E4;
       --text:        #2d1f26;
@@ -28,84 +29,37 @@
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
-
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .section-tag {
-      display: block;
-      font-size: 11px; font-weight: 600;
-      letter-spacing: 1.6px; text-transform: uppercase;
-      color: var(--plum); margin-bottom: 14px;
-    }
-    .btn-primary {
-      display: inline-block;
-      background: var(--plum); color: #fff;
-      padding: 13px 28px; border-radius: 50px;
-      font-size: 15px; font-weight: 500;
-      border: 2px solid var(--plum);
-      cursor: pointer; transition: opacity .2s;
-    }
+    .section-tag { display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--plum); margin-bottom: 14px; }
+    .btn-primary { display: inline-block; background: var(--plum); color: #fff; padding: 13px 28px; border-radius: 50px; font-size: 15px; font-weight: 500; border: 2px solid var(--plum); cursor: pointer; transition: opacity .2s; }
     .btn-primary:hover { opacity: .88; }
-    .btn-outline {
-      display: inline-block;
-      background: transparent; color: var(--plum);
-      padding: 13px 28px; border-radius: 50px;
-      font-size: 15px; font-weight: 500;
-      border: 2px solid var(--plum);
-      cursor: pointer; transition: background .2s, color .2s;
-    }
+    .btn-outline { display: inline-block; background: transparent; color: var(--plum); padding: 13px 28px; border-radius: 50px; font-size: 15px; font-weight: 500; border: 2px solid var(--plum); cursor: pointer; transition: background .2s, color .2s; }
     .btn-outline:hover { background: var(--plum); color: #fff; }
 
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(250,245,246,.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 68px; max-width: 1100px; margin: 0 auto; padding: 0 24px;
-    }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,245,246,.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--plum-border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; }
-    .nav-logo img { height: 44px; width: auto; }
-    .nav-logo span {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px; font-weight: 600; color: var(--plum);
-    }
+    .nav-logo img { height: 44px; width: auto; object-fit: contain; }
+    .nav-logo span { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--plum); }
     .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a {
-      font-size: 14px; font-weight: 500; color: var(--muted);
-      transition: color .2s;
-    }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color .2s; }
     .nav-links a:hover { color: var(--plum); }
     .nav-cta { font-size: 14px !important; padding: 9px 22px !important; }
     @media (max-width: 640px) { .nav-links { display: none; } }
 
     .hero { text-align: center; padding: 80px 24px 72px; }
-    .hero-logo { width: 120px; height: 120px; margin: 0 auto 32px; }
+    .hero-logo { width: 160px; height: 160px; margin: 0 auto 32px; object-fit: contain; }
     .hero h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.15; color: var(--text); margin-bottom: 20px; }
     .hero h1 em { font-style: normal; color: var(--plum); }
     .hero p { font-size: 17px; color: var(--muted); max-width: 480px; margin: 0 auto 36px; line-height: 1.7; }
     .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-    .trust-strip {
-      background: var(--plum-light);
-      border-top: 1px solid var(--plum-border);
-      border-bottom: 1px solid var(--plum-border);
-      padding: 20px 24px; text-align: center;
-    }
+    .trust-strip { background: var(--plum-light); border-top: 1px solid var(--plum-border); border-bottom: 1px solid var(--plum-border); padding: 20px 24px; text-align: center; }
     .trust-strip p { font-size: 14px; color: var(--plum); font-weight: 500; }
 
     .section { padding: 88px 0; }
@@ -302,10 +256,7 @@
           <span class="section-tag">For Sitters</span>
           <h2>Love Dogs?<br />Join Our Family</h2>
           <p>Become a verified Bows Boardings sitter and turn your love for dogs into a rewarding, flexible opportunity. We're looking for caring individuals who can provide a safe, loving home.</p>
-          <div class="rates-card">
-            <div class="rates-icon">💷</div>
-            <p><strong>Fixed, transparent rates.</strong> Every sitter earns <strong>£27/night</strong> for boarding and <strong>£22.50/day</strong> for daycare — no haggling, no guessing. Bows Boardings handles the admin.</p>
-          </div>
+          <div class="rates-card"><div class="rates-icon">💷</div><p><strong>Fixed, transparent rates.</strong> Every sitter earns <strong>£27/night</strong> for boarding and <strong>£22.50/day</strong> for daycare — no haggling, no guessing. Bows Boardings handles the admin.</p></div>
           <div class="benefits-grid">
             <div class="benefit"><div class="benefit-icon">💰</div><div><h4>Earn Extra Income</h4><p>Turn your love for dogs into a rewarding side income.</p></div></div>
             <div class="benefit"><div class="benefit-icon">🕐</div><div><h4>Flexible Schedule</h4><p>Accept bookings that fit your lifestyle and commitments.</p></div></div>
@@ -316,13 +267,7 @@
         </div>
         <div>
           <div class="testimonial-card">
-            <div class="testimonial-header">
-              <div class="testimonial-avatar">🐾</div>
-              <div>
-                <div class="testimonial-name">Aleisha B.</div>
-                <div class="testimonial-meta">Platform Host &amp; Founder · 2 years</div>
-              </div>
-            </div>
+            <div class="testimonial-header"><div class="testimonial-avatar">🐾</div><div><div class="testimonial-name">Aleisha B.</div><div class="testimonial-meta">Platform Host &amp; Founder · 2 years</div></div></div>
             <div class="testimonial-stars">★★★★★</div>
             <blockquote>"I started Bows Boardings because I wanted a trustworthy, personal alternative to big kennel chains. Every sitter I bring on board is someone I'd trust with my own dog — and that's the standard we hold ourselves to."</blockquote>
           </div>
@@ -381,25 +326,16 @@
       const btn = e.target.querySelector('button');
       btn.textContent = 'Saving…';
       btn.disabled = true;
-
       try {
         const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': SUPABASE_ANON_KEY,
-            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-            'Prefer': 'return=minimal',
-          },
+          headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}`, 'Prefer': 'return=minimal' },
           body: JSON.stringify({ email }),
         });
-
         if (res.ok || res.status === 409) {
           document.querySelector('.waitlist-form').style.display = 'none';
           document.getElementById('waitlist-thanks').style.display = 'block';
-        } else {
-          throw new Error('Unexpected response');
-        }
+        } else { throw new Error('Unexpected response'); }
       } catch {
         btn.textContent = 'Try again';
         btn.disabled = false;
