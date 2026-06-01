@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bows Boardings | Trusted Dog Boarding &amp; Daycare</title>
   <meta name="description" content="Find trusted, personally vetted dog sitters for boarding and daycare across South Wales. Download the Bows Boardings app." />
+  <link rel="icon" type="image/png" href="./assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -29,132 +30,436 @@
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
 
+    /* ── Utilities ─────────────────────────────────────────────── */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .section-tag { display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--plum); margin-bottom: 14px; }
-    .btn-primary { display: inline-block; background: var(--plum); color: #fff; padding: 13px 28px; border-radius: 50px; font-size: 15px; font-weight: 500; border: 2px solid var(--plum); cursor: pointer; transition: opacity .2s; }
+    .section-tag {
+      display: block;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 1.6px; text-transform: uppercase;
+      color: var(--plum); margin-bottom: 14px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--plum); color: #fff;
+      padding: 13px 28px; border-radius: 50px;
+      font-size: 15px; font-weight: 500;
+      border: 2px solid var(--plum);
+      cursor: pointer; transition: opacity .2s;
+    }
     .btn-primary:hover { opacity: .88; }
-    .btn-outline { display: inline-block; background: transparent; color: var(--plum); padding: 13px 28px; border-radius: 50px; font-size: 15px; font-weight: 500; border: 2px solid var(--plum); cursor: pointer; transition: background .2s, color .2s; }
+    .btn-outline {
+      display: inline-block;
+      background: transparent; color: var(--plum);
+      padding: 13px 28px; border-radius: 50px;
+      font-size: 15px; font-weight: 500;
+      border: 2px solid var(--plum);
+      cursor: pointer; transition: background .2s, color .2s;
+    }
     .btn-outline:hover { background: var(--plum); color: #fff; }
 
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(250,245,246,.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--plum-border); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    /* ── Nav ───────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,245,246,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--plum-border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px; max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    }
     .nav-logo { display: flex; align-items: center; gap: 10px; }
     .nav-logo img { height: 44px; width: auto; object-fit: contain; }
-    .nav-logo span { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--plum); }
+    .nav-logo span {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-weight: 600; color: var(--plum);
+    }
     .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); transition: color .2s; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--muted);
+      transition: color .2s;
+    }
     .nav-links a:hover { color: var(--plum); }
     .nav-cta { font-size: 14px !important; padding: 9px 22px !important; }
-    @media (max-width: 640px) { .nav-links { display: none; } }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
 
-    .hero { text-align: center; padding: 80px 24px 72px; }
-    .hero-logo { width: 160px; height: 160px; margin: 0 auto 32px; object-fit: contain; }
-    .hero h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.15; color: var(--text); margin-bottom: 20px; }
-    .hero h1 em { font-style: normal; color: var(--plum); }
-    .hero p { font-size: 17px; color: var(--muted); max-width: 480px; margin: 0 auto 36px; line-height: 1.7; }
-    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    /* ── Hero ──────────────────────────────────────────────────── */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 72px;
+    }
+    .hero-logo {
+      width: 160px; height: 160px;
+      margin: 0 auto 32px;
+      object-fit: contain;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--plum);
+    }
+    .hero p {
+      font-size: 17px; color: var(--muted);
+      max-width: 480px; margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .hero-btns {
+      display: flex; gap: 14px;
+      justify-content: center; flex-wrap: wrap;
+    }
 
-    .trust-strip { background: var(--plum-light); border-top: 1px solid var(--plum-border); border-bottom: 1px solid var(--plum-border); padding: 20px 24px; text-align: center; }
-    .trust-strip p { font-size: 14px; color: var(--plum); font-weight: 500; }
+    /* ── Trust strip ───────────────────────────────────────────── */
+    .trust-strip {
+      background: var(--plum-light);
+      border-top: 1px solid var(--plum-border);
+      border-bottom: 1px solid var(--plum-border);
+      padding: 20px 24px;
+      text-align: center;
+    }
+    .trust-strip p {
+      font-size: 14px; color: var(--plum); font-weight: 500;
+    }
 
+    /* ── Why Choose Us ─────────────────────────────────────────── */
     .section { padding: 88px 0; }
     .section-header { text-align: center; margin-bottom: 52px; }
-    .section-header h2 { font-size: clamp(30px, 4vw, 42px); color: var(--text); margin-bottom: 16px; }
-    .section-header p { font-size: 16px; color: var(--muted); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+    .section-header h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      color: var(--text); margin-bottom: 16px;
+    }
+    .section-header p {
+      font-size: 16px; color: var(--muted);
+      max-width: 520px; margin: 0 auto; line-height: 1.7;
+    }
 
-    .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    @media (max-width: 768px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .cards-grid { grid-template-columns: 1fr; } }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 768px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
 
-    .feature-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 28px 24px; }
-    .feature-icon { width: 46px; height: 46px; background: var(--plum-light); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 18px; }
-    .feature-card h3 { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-    .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+    }
+    .feature-icon {
+      width: 46px; height: 46px;
+      background: var(--plum-light);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; margin-bottom: 18px;
+    }
+    .feature-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px; font-weight: 600;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 14px; color: var(--muted); line-height: 1.65;
+    }
 
-    .owners-section { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 88px 0; }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
-    .two-col h2 { font-size: clamp(28px, 3.5vw, 40px); color: var(--text); margin-bottom: 16px; }
-    .two-col > div > p { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 32px; }
+    /* ── For Owners ────────────────────────────────────────────── */
+    .owners-section {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 88px 0;
+    }
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    @media (max-width: 768px) {
+      .two-col { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .two-col h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      color: var(--text); margin-bottom: 16px;
+    }
+    .two-col > div > p {
+      font-size: 16px; color: var(--muted);
+      line-height: 1.75; margin-bottom: 32px;
+    }
     .steps-list { display: flex; flex-direction: column; gap: 20px; }
-    .step { display: flex; gap: 16px; align-items: flex-start; }
-    .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--plum); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
-    .step-text h4 { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .step {
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--plum); color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700;
+    }
+    .step-text h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px; font-weight: 600;
+      color: var(--text); margin-bottom: 4px;
+    }
     .step-text p { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
-    .app-phone-mockup { background: var(--plum-light); border-radius: var(--radius-lg); border: 1px solid var(--plum-border); padding: 40px 32px; text-align: center; }
+    .app-phone-mockup {
+      background: var(--plum-light);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--plum-border);
+      padding: 40px 32px;
+      text-align: center;
+    }
     .phone-emoji { font-size: 72px; margin-bottom: 20px; }
-    .app-phone-mockup h3 { font-size: 20px; color: var(--plum); margin-bottom: 10px; }
-    .app-phone-mockup p { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 24px; }
+    .app-phone-mockup h3 {
+      font-size: 20px; color: var(--plum);
+      margin-bottom: 10px;
+    }
+    .app-phone-mockup p {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.65; margin-bottom: 24px;
+    }
     .app-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .app-badge { display: flex; align-items: center; gap: 8px; background: var(--plum-dark); color: #fff; padding: 10px 18px; border-radius: 12px; font-size: 13px; font-weight: 500; }
+    .app-badge {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--plum-dark); color: #fff;
+      padding: 10px 18px; border-radius: 12px;
+      font-size: 13px; font-weight: 500;
+    }
     .app-badge span { font-size: 18px; }
 
-    .app-section { padding: 88px 0; background: var(--bg); }
-    .app-card { background: var(--plum-dark); border-radius: var(--radius-lg); padding: 64px 48px; text-align: center; color: #fff; }
-    @media (max-width: 640px) { .app-card { padding: 44px 24px; } }
-    .app-badge-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); border-radius: 50px; padding: 6px 16px; font-size: 13px; font-weight: 500; margin-bottom: 24px; }
-    .app-card h2 { font-size: clamp(28px, 4vw, 44px); margin-bottom: 16px; line-height: 1.2; }
-    .app-card p { font-size: 16px; opacity: .8; max-width: 480px; margin: 0 auto 36px; line-height: 1.7; }
-    .waitlist-form { display: flex; gap: 10px; max-width: 420px; margin: 0 auto 28px; flex-wrap: wrap; justify-content: center; }
-    .waitlist-form input { flex: 1; min-width: 220px; padding: 14px 18px; border-radius: 50px; border: none; outline: none; font-size: 15px; font-family: 'Inter', sans-serif; }
-    .waitlist-form button { background: var(--plum); color: #fff; padding: 14px 24px; border-radius: 50px; border: none; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity .2s; }
+    /* ── App Waitlist section ───────────────────────────────────── */
+    .app-section {
+      padding: 88px 0;
+      background: var(--bg);
+    }
+    .app-card {
+      background: var(--plum-dark);
+      border-radius: var(--radius-lg);
+      padding: 64px 48px;
+      text-align: center;
+      color: #fff;
+    }
+    @media (max-width: 640px) {
+      .app-card { padding: 44px 24px; }
+    }
+    .app-badge-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 13px; font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .app-card h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      margin-bottom: 16px; line-height: 1.2;
+    }
+    .app-card p {
+      font-size: 16px; opacity: .8;
+      max-width: 480px; margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .waitlist-form {
+      display: flex; gap: 10px; max-width: 420px;
+      margin: 0 auto 28px; flex-wrap: wrap; justify-content: center;
+    }
+    .waitlist-form input {
+      flex: 1; min-width: 220px;
+      padding: 14px 18px;
+      border-radius: 50px;
+      border: none; outline: none;
+      font-size: 15px; font-family: 'Inter', sans-serif;
+    }
+    .waitlist-form button {
+      background: var(--plum); color: #fff;
+      padding: 14px 24px; border-radius: 50px;
+      border: none; font-size: 15px; font-weight: 600;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: opacity .2s;
+    }
     .waitlist-form button:hover { opacity: .88; }
-    .store-soon { display: flex; gap: 20px; justify-content: center; opacity: .5; font-size: 13px; }
+    .store-soon {
+      display: flex; gap: 20px; justify-content: center;
+      opacity: .5; font-size: 13px;
+    }
 
+    /* ── For Sitters ───────────────────────────────────────────── */
     .sitters-section { padding: 88px 0; }
-    .sitters-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    @media (max-width: 768px) { .sitters-inner { grid-template-columns: 1fr; gap: 40px; } }
-    .sitters-inner h2 { font-size: clamp(28px, 3.5vw, 40px); color: var(--text); margin-bottom: 16px; }
-    .sitters-inner > div > p { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 32px; }
-    .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
-    .benefit { display: flex; gap: 10px; align-items: flex-start; }
-    .benefit-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
-    .benefit h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .sitters-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: start;
+    }
+    @media (max-width: 768px) {
+      .sitters-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .sitters-inner h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      color: var(--text); margin-bottom: 16px;
+    }
+    .sitters-inner > div > p {
+      font-size: 16px; color: var(--muted);
+      line-height: 1.75; margin-bottom: 32px;
+    }
+    .benefits-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-bottom: 32px;
+    }
+    .benefit {
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .benefit-icon {
+      font-size: 20px; flex-shrink: 0; margin-top: 2px;
+    }
+    .benefit h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px; font-weight: 600;
+      color: var(--text); margin-bottom: 4px;
+    }
     .benefit p { font-size: 13px; color: var(--muted); line-height: 1.55; }
 
-    .rates-card { background: var(--plum-light); border: 1px solid var(--plum-border); border-radius: var(--radius-md); padding: 20px 24px; display: flex; gap: 16px; align-items: center; margin-bottom: 32px; }
+    .rates-card {
+      background: var(--plum-light);
+      border: 1px solid var(--plum-border);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      display: flex; gap: 16px; align-items: center;
+      margin-bottom: 32px;
+    }
     .rates-card .rates-icon { font-size: 28px; flex-shrink: 0; }
     .rates-card p { font-size: 14px; color: var(--plum); line-height: 1.6; }
     .rates-card strong { font-weight: 600; }
 
-    .testimonial-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 28px; }
-    .testimonial-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--plum-light); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
-    .testimonial-name { font-size: 15px; font-weight: 600; color: var(--text); }
-    .testimonial-meta { font-size: 13px; color: var(--muted); }
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px;
+    }
+    .testimonial-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 16px;
+    }
+    .testimonial-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--plum-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-size: 15px; font-weight: 600; color: var(--text);
+    }
+    .testimonial-meta {
+      font-size: 13px; color: var(--muted);
+    }
     .testimonial-stars { color: #E8A642; font-size: 16px; margin-bottom: 12px; }
-    .testimonial-card blockquote { font-size: 14px; color: var(--muted); line-height: 1.7; font-style: italic; }
+    .testimonial-card blockquote {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.7; font-style: italic;
+    }
 
-    .apply-section { background: var(--white); border-top: 1px solid var(--border); padding: 88px 0; }
-    .apply-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 52px; }
-    @media (max-width: 640px) { .apply-steps { grid-template-columns: 1fr; } }
+    /* ── Application Steps ─────────────────────────────────────── */
+    .apply-section {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 88px 0;
+    }
+    .apply-steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 32px; margin-top: 52px;
+    }
+    @media (max-width: 640px) {
+      .apply-steps { grid-template-columns: 1fr; }
+    }
     .apply-step { text-align: center; }
-    .apply-step-num { width: 48px; height: 48px; background: var(--plum); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; margin: 0 auto 18px; }
-    .apply-step h3 { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .apply-step-num {
+      width: 48px; height: 48px;
+      background: var(--plum); color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700;
+      margin: 0 auto 18px;
+    }
+    .apply-step h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px; font-weight: 600;
+      color: var(--text); margin-bottom: 8px;
+    }
     .apply-step p { font-size: 14px; color: var(--muted); line-height: 1.65; }
     .apply-cta { text-align: center; margin-top: 48px; }
 
-    footer { background: var(--plum-dark); color: rgba(255,255,255,.7); padding: 56px 0 32px; }
-    .footer-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }
-    .footer-logo { display: flex; align-items: center; gap: 10px; }
-    .footer-logo img { height: 52px; width: auto; filter: brightness(0) invert(1) opacity(.9); }
-    .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: #fff; }
-    footer p { font-size: 14px; max-width: 360px; line-height: 1.65; }
-    .footer-links { display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; }
-    .footer-links a { font-size: 14px; color: rgba(255,255,255,.6); transition: color .2s; }
+    /* ── Footer ────────────────────────────────────────────────── */
+    footer {
+      background: var(--plum-dark);
+      color: rgba(255,255,255,.7);
+      padding: 56px 0 32px;
+    }
+    .footer-inner {
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      gap: 24px;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .footer-logo img {
+      height: 52px; width: auto;
+      filter: brightness(0) invert(1) opacity(.9);
+    }
+    .footer-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 600; color: #fff;
+    }
+    footer p {
+      font-size: 14px; max-width: 360px; line-height: 1.65;
+    }
+    .footer-links {
+      display: flex; gap: 28px; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      font-size: 14px; color: rgba(255,255,255,.6);
+      transition: color .2s;
+    }
     .footer-links a:hover { color: #fff; }
-    .footer-divider { width: 100%; height: 1px; background: rgba(255,255,255,.1); }
-    .footer-copy { font-size: 13px; opacity: .4; }
+    .footer-divider {
+      width: 100%; height: 1px;
+      background: rgba(255,255,255,.1);
+    }
+    .footer-copy {
+      font-size: 13px; opacity: .4;
+    }
   </style>
 </head>
 <body>
 
+  <!-- ── Nav ──────────────────────────────────────────────────── -->
   <nav>
     <div class="nav-inner">
       <a href="#" class="nav-logo">
@@ -171,6 +476,7 @@
     </div>
   </nav>
 
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
   <section class="hero">
     <img class="hero-logo" src="./assets/logo.png" alt="Bows Boardings" />
     <h1>Trusted Care for Your<br /><em>Furry Family</em></h1>
@@ -181,10 +487,12 @@
     </div>
   </section>
 
+  <!-- ── Trust strip ───────────────────────────────────────────── -->
   <div class="trust-strip">
     <p>🐾&nbsp; Every sitter is personally interviewed and approved by Bows Boardings founder Aleisha before joining the platform</p>
   </div>
 
+  <!-- ── Why Choose Us ─────────────────────────────────────────── -->
   <section class="section" id="why">
     <div class="container">
       <div class="section-header">
@@ -193,16 +501,41 @@
         <p>We understand leaving your dog is hard. That's why we've built a platform focused on safety, trust, and genuine love for pets.</p>
       </div>
       <div class="cards-grid">
-        <div class="feature-card"><div class="feature-icon">🛡️</div><h3>Verified Sitters</h3><p>Every sitter goes through our thorough vetting process including a personal interview and home check conducted by Aleisha.</p></div>
-        <div class="feature-card"><div class="feature-icon">🤍</div><h3>Loving Care</h3><p>Our sitters are passionate pet lovers who treat your dog like family, not just a job.</p></div>
-        <div class="feature-card"><div class="feature-icon">🏠</div><h3>Home Environment</h3><p>Your dog stays in a real home, not a kennel. Less stress, more comfort and personalised attention.</p></div>
-        <div class="feature-card"><div class="feature-icon">⭐</div><h3>Quality Guaranteed</h3><p>We maintain high standards for every sitter on our network. Your dog's wellbeing always comes first.</p></div>
-        <div class="feature-card"><div class="feature-icon">🐶</div><h3>Meet &amp; Greet</h3><p>Always meet your sitter beforehand. Make sure it's the perfect match for your pup's personality.</p></div>
-        <div class="feature-card"><div class="feature-icon">☀️</div><h3>Peace of Mind</h3><p>Stay connected with updates from your sitter. Know your furry friend is happy and safe at all times.</p></div>
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Verified Sitters</h3>
+          <p>Every sitter goes through our thorough vetting process including a personal interview and home check conducted by Aleisha.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🤍</div>
+          <h3>Loving Care</h3>
+          <p>Our sitters are passionate pet lovers who treat your dog like family, not just a job.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏠</div>
+          <h3>Home Environment</h3>
+          <p>Your dog stays in a real home, not a kennel. Less stress, more comfort and personalised attention.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⭐</div>
+          <h3>Quality Guaranteed</h3>
+          <p>We maintain high standards for every sitter on our network. Your dog's wellbeing always comes first.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🐶</div>
+          <h3>Meet &amp; Greet</h3>
+          <p>Always meet your sitter beforehand. Make sure it's the perfect match for your pup's personality.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">☀️</div>
+          <h3>Peace of Mind</h3>
+          <p>Stay connected with updates from your sitter. Know your furry friend is happy and safe at all times.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ── For Owners ─────────────────────────────────────────────── -->
   <section class="owners-section" id="for-owners">
     <div class="container">
       <div class="two-col">
@@ -211,9 +544,27 @@
           <h2>Finding a Sitter Has Never Been Easier</h2>
           <p>The Bows Boardings app puts vetted, caring sitters right at your fingertips. Browse real profiles, send a booking request, and manage everything from your phone.</p>
           <div class="steps-list">
-            <div class="step"><div class="step-num">1</div><div class="step-text"><h4>Browse Verified Sitters</h4><p>See every approved sitter's profile, bio, and service area. Every single one has been personally vetted by Aleisha.</p></div></div>
-            <div class="step"><div class="step-num">2</div><div class="step-text"><h4>Send a Booking Request</h4><p>Pick your dates, choose boarding or daycare, add your dog's details and any special instructions — done in minutes.</p></div></div>
-            <div class="step"><div class="step-num">3</div><div class="step-text"><h4>Relax While Your Dog Thrives</h4><p>Once your sitter accepts, you'll receive their contact details to arrange a meet &amp; greet and confirm the stay.</p></div></div>
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-text">
+                <h4>Browse Verified Sitters</h4>
+                <p>See every approved sitter's profile, bio, and service area. Every single one has been personally vetted by Aleisha.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-text">
+                <h4>Send a Booking Request</h4>
+                <p>Pick your dates, choose boarding or daycare, add your dog's details and any special instructions — done in minutes.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-text">
+                <h4>Relax While Your Dog Thrives</h4>
+                <p>Once your sitter accepts, you'll receive their contact details to arrange a meet &amp; greet and confirm the stay.</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="app-phone-mockup">
@@ -229,6 +580,7 @@
     </div>
   </section>
 
+  <!-- ── App Waitlist ────────────────────────────────────────────── -->
   <section class="app-section" id="app">
     <div class="container">
       <div class="app-card">
@@ -243,12 +595,15 @@
           🎉 You're on the list! We'll be in touch soon.
         </div>
         <div class="store-soon">
-          <span>Soon on App Store</span><span>·</span><span>Soon on Google Play</span>
+          <span>Soon on App Store</span>
+          <span>·</span>
+          <span>Soon on Google Play</span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── For Sitters ─────────────────────────────────────────────── -->
   <section class="sitters-section" id="for-sitters">
     <div class="container">
       <div class="sitters-inner">
@@ -256,18 +611,55 @@
           <span class="section-tag">For Sitters</span>
           <h2>Love Dogs?<br />Join Our Family</h2>
           <p>Become a verified Bows Boardings sitter and turn your love for dogs into a rewarding, flexible opportunity. We're looking for caring individuals who can provide a safe, loving home.</p>
-          <div class="rates-card"><div class="rates-icon">💷</div><p><strong>Fixed, transparent rates.</strong> Every sitter earns <strong>£27/night</strong> for boarding and <strong>£22.50/day</strong> for daycare — no haggling, no guessing. Bows Boardings handles the admin.</p></div>
-          <div class="benefits-grid">
-            <div class="benefit"><div class="benefit-icon">💰</div><div><h4>Earn Extra Income</h4><p>Turn your love for dogs into a rewarding side income.</p></div></div>
-            <div class="benefit"><div class="benefit-icon">🕐</div><div><h4>Flexible Schedule</h4><p>Accept bookings that fit your lifestyle and commitments.</p></div></div>
-            <div class="benefit"><div class="benefit-icon">😊</div><div><h4>Do What You Love</h4><p>Spend your days with adorable dogs — cuddles included.</p></div></div>
-            <div class="benefit"><div class="benefit-icon">✅</div><div><h4>Trusted Platform</h4><p>A verified community with proper support behind you.</p></div></div>
+
+          <div class="rates-card">
+            <div class="rates-icon">💷</div>
+            <p><strong>Fixed, transparent rates.</strong> Every sitter earns <strong>£27/night</strong> for boarding and <strong>£22.50/day</strong> for daycare — no haggling, no guessing. Bows Boardings handles the admin.</p>
           </div>
+
+          <div class="benefits-grid">
+            <div class="benefit">
+              <div class="benefit-icon">💰</div>
+              <div>
+                <h4>Earn Extra Income</h4>
+                <p>Turn your love for dogs into a rewarding side income.</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">🕐</div>
+              <div>
+                <h4>Flexible Schedule</h4>
+                <p>Accept bookings that fit your lifestyle and commitments.</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">😊</div>
+              <div>
+                <h4>Do What You Love</h4>
+                <p>Spend your days with adorable dogs — cuddles included.</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <div class="benefit-icon">✅</div>
+              <div>
+                <h4>Trusted Platform</h4>
+                <p>A verified community with proper support behind you.</p>
+              </div>
+            </div>
+          </div>
+
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxwGFhc_LgkJjWLrwaKcv6B3qy96PxZPBOVnz7_a94nsshQQ/viewform?usp=header" target="_blank" class="btn-primary">Apply to Become a Sitter</a>
         </div>
+
         <div>
           <div class="testimonial-card">
-            <div class="testimonial-header"><div class="testimonial-avatar">🐾</div><div><div class="testimonial-name">Aleisha B.</div><div class="testimonial-meta">Platform Host &amp; Founder · 2 years</div></div></div>
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">🐾</div>
+              <div>
+                <div class="testimonial-name">Aleisha B.</div>
+                <div class="testimonial-meta">Platform Host &amp; Founder · 2 years</div>
+              </div>
+            </div>
             <div class="testimonial-stars">★★★★★</div>
             <blockquote>"I started Bows Boardings because I wanted a trustworthy, personal alternative to big kennel chains. Every sitter I bring on board is someone I'd trust with my own dog — and that's the standard we hold ourselves to."</blockquote>
           </div>
@@ -276,6 +668,7 @@
     </div>
   </section>
 
+  <!-- ── Application Steps ───────────────────────────────────────── -->
   <section class="apply-section" id="apply">
     <div class="container">
       <div class="section-header">
@@ -284,9 +677,21 @@
         <p>Our application takes around 5–10 minutes. We'll be in touch within 3–5 business days.</p>
       </div>
       <div class="apply-steps">
-        <div class="apply-step"><div class="apply-step-num">1</div><h3>Apply</h3><p>Fill out our online form with your details, experience with dogs, and a bit about your home.</p></div>
-        <div class="apply-step"><div class="apply-step-num">2</div><h3>Verification</h3><p>Aleisha will personally review your application and arrange a quick chat and home check.</p></div>
-        <div class="apply-step"><div class="apply-step-num">3</div><h3>Start Sitting</h3><p>Once approved, you'll appear in the app and start receiving booking requests from local owners.</p></div>
+        <div class="apply-step">
+          <div class="apply-step-num">1</div>
+          <h3>Apply</h3>
+          <p>Fill out our online form with your details, experience with dogs, and a bit about your home.</p>
+        </div>
+        <div class="apply-step">
+          <div class="apply-step-num">2</div>
+          <h3>Verification</h3>
+          <p>Aleisha will personally review your application and arrange a quick chat and home check.</p>
+        </div>
+        <div class="apply-step">
+          <div class="apply-step-num">3</div>
+          <h3>Start Sitting</h3>
+          <p>Once approved, you'll appear in the app and start receiving booking requests from local owners.</p>
+        </div>
       </div>
       <div class="apply-cta">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxwGFhc_LgkJjWLrwaKcv6B3qy96PxZPBOVnz7_a94nsshQQ/viewform?usp=header" target="_blank" class="btn-primary">Start Your Application</a>
@@ -294,6 +699,7 @@
     </div>
   </section>
 
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
   <footer>
     <div class="container">
       <div class="footer-inner">
@@ -326,16 +732,25 @@
       const btn = e.target.querySelector('button');
       btn.textContent = 'Saving…';
       btn.disabled = true;
+
       try {
         const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}`, 'Prefer': 'return=minimal' },
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal',
+          },
           body: JSON.stringify({ email }),
         });
+
         if (res.ok || res.status === 409) {
           document.querySelector('.waitlist-form').style.display = 'none';
           document.getElementById('waitlist-thanks').style.display = 'block';
-        } else { throw new Error('Unexpected response'); }
+        } else {
+          throw new Error('Unexpected response');
+        }
       } catch {
         btn.textContent = 'Try again';
         btn.disabled = false;
